@@ -37,4 +37,4 @@ methods as required::
 Examples
 ========
 
-See the examples directory for usage examples.
+See the `examples` directory for usage examples.
