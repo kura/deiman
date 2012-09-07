@@ -8,7 +8,7 @@ setup(name='deiman',
       url='http://syslog.tv/deiman',
       author="Kura",
       author_email="kura@kura.io",
-      description="Deiman is a Python utility class for daemonizing a process. It provides start and stop methods, as well as a method for retrieving running status information. Linux-Only.",
+      description="Deiman is a Python utility class for daemonizing a process. It provides start and stop methods, as well as a method for retrieving running status information. Linux/Unix-only.",
       long_description=file(
           os.path.join(
               os.path.dirname(__file__),
