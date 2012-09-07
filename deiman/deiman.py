@@ -15,6 +15,7 @@ class Deiman:
         self.pidfile = pidfile
 
     def daemonize(self):
+        """This is where the Unix double fork magic happens"""
         try:
             pid = os.fork()
             if pid > 0:
@@ -49,6 +50,7 @@ class Deiman:
         file(self.pidfile, 'w+').write("%s\n" % pid)
 
     def delpid(self):
+        """Remove the existing pidfile from the filesystem"""
         os.remove(self.pidfile)
 
     def start(self):
