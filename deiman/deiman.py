@@ -5,7 +5,7 @@ import atexit
 from signal import SIGTERM
 
 
-class Daemon:
+class Deiman:
 
     def __init__(self, pidfile, stdin="/dev/null",
                  stdout="/dev/null", stderr="/dev/null"):
@@ -105,6 +105,7 @@ class Daemon:
         self.start()
 
     def status(self):
+        """Return the state of a process"""
         if not os.path.exists(self.pidfile):
             print "not running"
             sys.exit()
