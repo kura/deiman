@@ -21,7 +21,7 @@ class Deiman:
             if pid > 0:
                 sys.exit(0)
         except OSError, e:
-            print "fork #1 failed: %d (%s)\n" % (e.errno, e.strerror)
+            print "Fork #1 failed: %d (%s)\n" % (e.errno, e.strerror)
             sys.exit(1)
 
         os.chdir("/")
@@ -33,7 +33,7 @@ class Deiman:
             if pid > 0:
                 sys.exit(0)
         except OSError, e:
-            print "fork #2 failed: %d (%s)\n" % (e.errno, e.strerror)
+            print "Fork #2 failed: %d (%s)\n" % (e.errno, e.strerror)
             sys.exit(1)
 
         sys.stdout.flush()
