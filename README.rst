@@ -25,7 +25,7 @@ Usage
 To use deiman, you simply need to import the main Deiman class and call the start and stop
 methods as required::
 
-  from deiman import Deiman
+  from deiman.deiman import Deiman
 
 
   d = Deiman("/tmp/a.pid")
@@ -33,3 +33,8 @@ methods as required::
   
   while True:
       print "This print will be hidden because I am daemonized"
+
+Examples
+========
+
+See the examples directory for usage examples.
