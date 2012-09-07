@@ -22,8 +22,9 @@ Install from source::
 Usage
 =====
 
-To use deiman, you simply need to import the main Deiman class and call the start and stop
-methods as required::
+To use Deiman, you simply need to import the main Deiman class, 
+passing a path to where you want the pid to be stored and call 
+the start and stop methods as required::
 
   from deiman.deiman import Deiman
 
