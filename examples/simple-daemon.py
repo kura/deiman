@@ -6,7 +6,7 @@ from deiman.deiman import Deiman
 d = Deiman("/tmp/deiman.pid")
 
 if len(sys.argv) == 1 or sys.argv[1] not in ('start', 'stop', 'status'):
-    print "Usage: simple-daemon.py [start, stop, status]"
+    print "Usage: python simple-daemon.py [start, stop, status]"
     sys.exit(2)
 
 act = sys.argv[1]
