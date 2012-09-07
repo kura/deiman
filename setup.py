@@ -27,4 +27,4 @@ setup(name='deiman',
           'Topic :: Utilities',
       ],
       zip_safe=False,
-      )
+)
