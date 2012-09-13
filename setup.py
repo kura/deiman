@@ -11,12 +11,7 @@ setup(name='deiman',
       maintainer="Kura",
       maintainer_email="kura@kura.io",
       description="Deiman is a Python utility class for daemonizing a process. It provides start and stop methods, as well as a method for retrieving running status information. Linux/Unix-only.",
-      long_description=file(
-          os.path.join(
-              os.path.dirname(__file__),
-              'README.rst'
-          )
-      ).read(),
+      long_description=open('README.rst').read()
       license='BSD',
       platforms=['linux'],
       packages=find_packages(exclude=["*.tests"]),
