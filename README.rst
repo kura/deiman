@@ -54,4 +54,6 @@ the start and stop methods as required::
 Examples
 ========
 
-See the ``examples`` directory for usage examples.
+See the examples_ directory for usage examples on GitHub.
+
+.. _examples: https://github.com/kura/deiman/tree/master/examples
