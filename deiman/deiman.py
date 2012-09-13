@@ -15,12 +15,13 @@ class Deiman:
         self.pidfile = pidfile
 
     def daemonize(self):
+        """This is where the Unix double fork magic happens"""
         try:
             pid = os.fork()
             if pid > 0:
                 sys.exit(0)
         except OSError, e:
-            print "fork #1 failed: %d (%s)\n" % (e.errno, e.strerror)
+            print "Fork #1 failed: %d (%s)\n" % (e.errno, e.strerror)
             sys.exit(1)
 
         os.chdir("/")
@@ -32,7 +33,7 @@ class Deiman:
             if pid > 0:
                 sys.exit(0)
         except OSError, e:
-            print "fork #2 failed: %d (%s)\n" % (e.errno, e.strerror)
+            print "Fork #2 failed: %d (%s)\n" % (e.errno, e.strerror)
             sys.exit(1)
 
         sys.stdout.flush()
@@ -49,6 +50,7 @@ class Deiman:
         file(self.pidfile, 'w+').write("%s\n" % pid)
 
     def delpid(self):
+        """Remove the existing pidfile from the filesystem"""
         os.remove(self.pidfile)
 
     def start(self):

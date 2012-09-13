@@ -5,7 +5,9 @@ Deiman
 Deiman is a Python utility class for daemonizing a process.
 It has start and stop methods, as well as a method for retrieving running status information.
 
-Linux-only.
+Linux/Unix-only.
+
+Uses the Unix double fork method to fork your process to the background.
 
 
 Installation
@@ -36,8 +38,9 @@ Download the latest tarball from PyPI or GitHub. Unpack and run:
 Usage
 =====
 
-To use deiman, you simply need to import the main Deiman class and call the start and stop
-methods as required::
+To use Deiman, you simply need to import the main Deiman class, 
+passing a path to where you want the pid to be stored and call 
+the start and stop methods as required::
 
   from deiman.deiman import Deiman
 
@@ -51,4 +54,4 @@ methods as required::
 Examples
 ========
 
-See the examples directory for usage examples.
+See the ``examples`` directory for usage examples.
