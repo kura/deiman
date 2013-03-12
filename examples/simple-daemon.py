@@ -2,7 +2,7 @@
 import sys
 
 # Import Deiman
-from deiman.deiman import Deiman
+from deiman import Deiman
 
 
 # Create a new instance of Deiman, passing in a PID file to use
