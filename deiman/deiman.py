@@ -52,22 +52,26 @@ class Deiman:
     def delpid(self):
         """Remove the existing pidfile from the filesystem"""
         os.remove(self.pidfile)
+        
+    @property
+    def pid(self):
+        try:
+            pid = int(file(self.pidfile, 'r').read().strip())
+        except IOError:
+            pid = None
+        return pid
 
     def start(self):
         """
         Start the daemon
         """
-        try:
-            pid = int(file(self.pidfile, 'r').read().strip())
-        except IOError:
-            pid = None
-        if pid:
-            if os.path.exists("/proc/%s" % pid):
+        if self.pid:
+            if os.path.exists("/proc/%s" % self.pid):
                 message = "pidfile %s already exist. Daemon already running?\n"
                 print message % self.pidfile
                 sys.exit(1)
             else:
-                print "Stale pid %s. Removing" % pid
+                print "Stale pid %s. Removing" % self.pid
                 self.delpid()
 
         self.daemonize()
