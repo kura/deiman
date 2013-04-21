@@ -20,8 +20,8 @@ class Deiman:
             pid = os.fork()
             if pid > 0:
                 sys.exit(0)
-        except OSError, e:
-            print "Fork #1 failed: %d (%s)\n" % (e.errno, e.strerror)
+        except OSError as e:
+            print("Fork #1 failed: %d (%s)\n" % (e.errno, e.strerror))
             sys.exit(1)
 
         os.chdir("/")
@@ -32,8 +32,8 @@ class Deiman:
             pid = os.fork()
             if pid > 0:
                 sys.exit(0)
-        except OSError, e:
-            print "Fork #2 failed: %d (%s)\n" % (e.errno, e.strerror)
+        except OSError as e:
+            print("Fork #2 failed: %d (%s)\n" % (e.errno, e.strerror))
             sys.exit(1)
 
         sys.stdout.flush()
@@ -68,10 +68,10 @@ class Deiman:
         if self.pid:
             if os.path.exists("/proc/%s" % self.pid):
                 message = "pidfile %s already exist. Daemon already running?\n"
-                print message % self.pidfile
+                print(message % self.pidfile)
                 sys.exit(1)
             else:
-                print "Stale pid %s. Removing" % self.pid
+                print("Stale pid %s. Removing" % self.pid)
                 self.delpid()
 
         self.daemonize()
@@ -87,20 +87,20 @@ class Deiman:
 
         if not pid:
             message = "pidfile %s does not exist. Daemon not running?\n"
-            print message % self.pidfile
+            print(message % self.pidfile)
             return
 
         try:
             while True:
                 os.kill(pid, SIGTERM)
                 time.sleep(0.1)
-        except OSError, err:
+        except OSError as err:
             err = str(err)
             if err.find("No such process") > 0:
                 if os.path.exists(self.pidfile):
                     os.remove(self.pidfile)
             else:
-                print err
+                print(err)
                 sys.exit(1)
 
     def restart(self):
@@ -113,7 +113,7 @@ class Deiman:
     def status(self):
         """Return the state of a process"""
         if not os.path.exists(self.pidfile):
-            print "not running"
+            print("not running")
             sys.exit()
         pid = open(self.pidfile, "r").read()[:-1]
         stats = os.path.join("/proc", pid, "status")
@@ -121,8 +121,8 @@ class Deiman:
             c = open(stats, "r").read().split("\n")
             _, state = c[1].split("\t")
             if not state.startswith("Z"):
-                print "running"
+                print("running")
             else:
-                print "zombie"
+                print("zombie")
         else:
-            print "not running"
+            print("not running")
