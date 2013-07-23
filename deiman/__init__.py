@@ -1,4 +1,4 @@
-__version__ = "0.1.3"
+__version__ = "0.1.5"
 __author__ = "Kura"
 __email__ = "kura@kura.io"
 __license__ = "MIT"

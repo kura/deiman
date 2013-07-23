@@ -47,7 +47,9 @@ class Deiman:
 
         atexit.register(self.delpid)
         pid = str(os.getpid())
-        file(self.pidfile, 'w+').write("%s\n" % pid)
+        afile = open(self.pidfile, 'w+')
+        afile.write("%s\n" % pid)
+        afile.close()
 
     def delpid(self):
         """Remove the existing pidfile from the filesystem"""
