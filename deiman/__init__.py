@@ -8,4 +8,4 @@ __status__ = "Stable"
 __all__ = ['deiman']
 
 
-from deiman import Deiman
+from .deiman import Deiman

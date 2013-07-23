@@ -12,7 +12,7 @@ d = Deiman("/tmp/deiman.pid")
 # Check incoming argv values to see if we have start, stop or status
 # command.
 if len(sys.argv) == 1 or sys.argv[1] not in ('start', 'stop', 'status'):
-    print "Usage: python simple-daemon.py [start, stop, status]"
+    print("Usage: python simple-daemon.py [start, stop, status]")
     sys.exit(2)
 
 # Set the incoming action to a shorter variable name, lazy.
@@ -33,10 +33,10 @@ elif act == "status":
     d.status()
     sys.exit(0)
 else:
-    print "Unknown option!"
+    print("Unknown option!")
     sys.exit(2)
 
 # Now we loop to keep the process a live until it's stopped.
 while True:
     # do something here, it will only run if action is start
-    print "Lalala"
+    print("Lalala")
